@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Profesional | Fresh Graduate</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config for Custom Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        pink: {
+                            500: '#ec4899',
+                            600: '#db2777',
+                        },
+                        dark: {
+                            900: '#0f0f11',
+                            800: '#1a1a1e',
+                            700: '#27272a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f0f11;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar Customization */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f0f11;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #db2777; /* Pink 600 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ec4899; /* Pink 500 */
+        }
+
+        /* Scroll Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Delay utilities for staggered animations */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        
+        /* Subtle Glow Effect for Pink */
+        .glow-pink {
+            box-shadow: 0 0 15px rgba(236, 72, 153, 0.3);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-pink-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 bg-dark-900/80 backdrop-blur-md border-b border-dark-700" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#home" class="text-2xl font-bold text-white tracking-tighter">
+                        Porto<span class="text-pink-500">Folio.</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="text-gray-300 hover:text-pink-500 transition-colors text-sm font-medium">Home</a>
+                    <a href="#about" class="text-gray-300 hover:text-pink-500 transition-colors text-sm font-medium">About Us</a>
+                    <a href="#education" class="text-gray-300 hover:text-pink-500 transition-colors text-sm font-medium">Education</a>
+                    <a href="#projects" class="text-gray-300 hover:text-pink-500 transition-colors text-sm font-medium">Projects</a>
+                    <a href="#contact" class="px-5 py-2.5 rounded-full bg-pink-600 text-white text-sm font-medium hover:bg-pink-500 transition-all glow-pink">
+                        Contact Me
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none p-2">
+                        <i class="ph ph-list text-3xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="md:hidden hidden bg-dark-800 absolute w-full border-b border-dark-700 shadow-xl">
+            <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
+                <a href="#home" class="mobile-link block px-3 py-3 text-base font-medium text-gray-300 hover:text-pink-500 hover:bg-dark-700 rounded-lg transition">Home</a>
+                <a href="#about" class="mobile-link block px-3 py-3 text-base font-medium text-gray-300 hover:text-pink-500 hover:bg-dark-700 rounded-lg transition">About Us</a>
+                <a href="#education" class="mobile-link block px-3 py-3 text-base font-medium text-gray-300 hover:text-pink-500 hover:bg-dark-700 rounded-lg transition">Education</a>
+                <a href="#projects" class="mobile-link block px-3 py-3 text-base font-medium text-gray-300 hover:text-pink-500 hover:bg-dark-700 rounded-lg transition">Projects</a>
+                <a href="#contact" class="mobile-link block mt-4 text-center px-5 py-3 rounded-lg bg-pink-600 text-white text-base font-medium hover:bg-pink-500 transition">Contact Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
+        <!-- Background decorative elements -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-pink-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 reveal">
+            <p class="text-pink-500 font-medium tracking-wide mb-4 uppercase text-sm">Halo, Selamat Datang</p>
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                Saya <span class="text-pink-500 inline-block">Nama Anda</span><br>
+                <span class="text-3xl md:text-5xl text-gray-400 mt-2 block">Seorang Fresh Graduate</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-gray-400 text-lg mb-10 leading-relaxed">
+                Lulusan baru yang bersemangat, adaptif, dan siap memberikan kontribusi maksimal. Memiliki minat besar di bidang pengembangan diri dan siap menghadapi tantangan di dunia profesional.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#projects" class="w-full sm:w-auto px-8 py-4 rounded-full bg-pink-600 text-white font-medium hover:bg-pink-500 transition-all glow-pink">
+                    Lihat Portofolio
+                </a>
+                <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-full bg-transparent border border-pink-500 text-pink-500 font-medium hover:bg-pink-500/10 transition-all">
+                    Unduh CV
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-24 bg-dark-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Tentang <span class="text-pink-500">Saya</span></h2>
+                <div class="w-16 h-1 bg-pink-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Image Placeholder -->
+                <div class="reveal relative">
+                    <div class="aspect-square w-full max-w-md mx-auto rounded-2xl overflow-hidden relative group">
+                        <img src="https://placehold.co/600x600/27272a/ec4899?text=Foto+Profil" alt="Profile" class="object-cover w-full h-full transition duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 border-2 border-pink-500 rounded-2xl scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition duration-500 pointer-events-none"></div>
+                    </div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="reveal delay-100">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Lulusan Baru yang Siap Bekerja & Berkembang</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Saya adalah lulusan program studi [Nama Jurusan] dari [Nama Universitas] dengan IPK [Nilai IPK]. Selama masa kuliah, saya aktif dalam berbagai kegiatan organisasi dan proyek akademik yang melatih kemampuan *problem-solving* dan kerja sama tim saya.
+                    </p>
+                    <p class="text-gray-400 mb-8 leading-relaxed">
+                        Meskipun saya seorang *fresh graduate*, saya memiliki kemauan keras untuk belajar (*fast learner*), beradaptasi dengan lingkungan baru, dan memberikan *impact* positif bagi perusahaan tempat saya bekerja nantinya.
+                    </p>
+                    
+                    <!-- Skills -->
+                    <div class="space-y-4">
+                        <h4 class="text-white font-medium">Keterampilan Utama:</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-dark-700 border border-dark-700 hover:border-pink-500 rounded-lg text-sm text-gray-300 transition cursor-default">Problem Solving</span>
+                            <span class="px-4 py-2 bg-dark-700 border border-dark-700 hover:border-pink-500 rounded-lg text-sm text-gray-300 transition cursor-default">Kerja Tim</span>
+                            <span class="px-4 py-2 bg-dark-700 border border-dark-700 hover:border-pink-500 rounded-lg text-sm text-gray-300 transition cursor-default">Komunikasi Efektif</span>
+                            <span class="px-4 py-2 bg-dark-700 border border-dark-700 hover:border-pink-500 rounded-lg text-sm text-gray-300 transition cursor-default">Manajemen Waktu</span>
+                            <span class="px-4 py-2 bg-dark-700 border border-dark-700 hover:border-pink-500 rounded-lg text-sm text-gray-300 transition cursor-default">Adaptif</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-24 bg-dark-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Riwayat <span class="text-pink-500">Pendidikan</span></h2>
+                <div class="w-16 h-1 bg-pink-500 mx-auto rounded-full"></div>
+                <p class="mt-4 text-gray-400">Latar belakang akademik yang membentuk kompetensi saya.</p>
+            </div>
+
+            <div class="relative border-l-2 border-pink-500/30 ml-3 md:ml-0">
+                
+                <!-- Education Item 1 -->
+                <div class="mb-10 ml-8 reveal">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-pink-500 rounded-full -left-[13px] ring-4 ring-dark-900 glow-pink">
+                        <i class="ph-fill ph-graduation-cap text-white text-xs"></i>
+                    </span>
+                    <div class="bg-dark-800 p-6 rounded-xl border border-dark-700 hover:border-pink-500/50 transition">
+                        <h3 class="flex items-center mb-1 text-lg font-semibold text-white">Gelar Sarjana [Bidang Studi]</h3>
+                        <time class="block mb-2 text-sm font-normal leading-none text-pink-400">2019 - 2023 | Universitas Contoh Indonesia</time>
+                        <p class="text-base font-normal text-gray-400 mt-3">Lulus dengan predikat Cum Laude (IPK: 3.85). Aktif sebagai asisten laboratorium dan ketua himpunan mahasiswa selama 1 periode. Mengerjakan tugas akhir mengenai penerapan teknologi efisien di bidang terkait.</p>
+                    </div>
+                </div>
+
+                <!-- Education Item 2 -->
+                <div class="mb-10 ml-8 reveal delay-100">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-dark-700 rounded-full -left-[13px] ring-4 ring-dark-900 border border-pink-500"></span>
+                    <div class="bg-dark-800 p-6 rounded-xl border border-dark-700 hover:border-pink-500/50 transition">
+                        <h3 class="flex items-center mb-1 text-lg font-semibold text-white">Sekolah Menengah Atas (Jurusan IPA/IPS)</h3>
+                        <time class="block mb-2 text-sm font-normal leading-none text-pink-400">2016 - 2019 | SMA Negeri 1 Contoh</time>
+                        <p class="text-base font-normal text-gray-400 mt-3">Aktif dalam organisasi OSIS dan ekstrakurikuler majalah sekolah. Memenangkan juara 2 lomba karya tulis ilmiah tingkat kota.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-dark-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Proyek & <span class="text-pink-500">Pengalaman</span></h2>
+                <div class="w-16 h-1 bg-pink-500 mx-auto rounded-full"></div>
+                <p class="mt-4 text-gray-400">Beberapa karya dan tugas akhir yang pernah saya selesaikan.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1 -->
+                <div class="bg-dark-900 rounded-2xl overflow-hidden border border-dark-700 group hover:border-pink-500 transition duration-300 reveal">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="https://placehold.co/600x400/27272a/ec4899?text=Proyek+Satu" alt="Project 1" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <a href="#" class="px-6 py-2 bg-pink-600 text-white rounded-full font-medium transform translate-y-4 group-hover:translate-y-0 transition duration-300">Lihat Detail</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-pink-500/10 text-pink-500">Riset</span>
+                            <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-pink-500/10 text-pink-500">Tugas Akhir</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Analisis Efisiensi Sistem XYZ</h3>
+                        <p class="text-gray-400 text-sm line-clamp-3">Proyek tugas akhir yang meneliti dan mengembangkan metodologi baru untuk meningkatkan efisiensi sistem XYZ sebesar 20%. Melibatkan riset lapangan dan analisis data kuantitatif.</p>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-dark-900 rounded-2xl overflow-hidden border border-dark-700 group hover:border-pink-500 transition duration-300 reveal delay-100">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="https://placehold.co/600x400/27272a/ec4899?text=Proyek+Dua" alt="Project 2" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <a href="#" class="px-6 py-2 bg-pink-600 text-white rounded-full font-medium transform translate-y-4 group-hover:translate-y-0 transition duration-300">Lihat Detail</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-pink-500/10 text-pink-500">Kepanitiaan</span>
+                            <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-pink-500/10 text-pink-500">Event</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Kampus Expo 2022</h3>
+                        <p class="text-gray-400 text-sm line-clamp-3">Bertindak sebagai Ketua Divisi Acara. Bertanggung jawab atas rundown, koordinasi dengan pembicara, dan memastikan kelancaran acara yang dihadiri oleh lebih dari 1000 peserta.</p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-dark-900 rounded-2xl overflow-hidden border border-dark-700 group hover:border-pink-500 transition duration-300 reveal delay-200">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="https://placehold.co/600x400/27272a/ec4899?text=Proyek+Tiga" alt="Project 3" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <a href="#" class="px-6 py-2 bg-pink-600 text-white rounded-full font-medium transform translate-y-4 group-hover:translate-y-0 transition duration-300">Lihat Detail</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-pink-500/10 text-pink-500">Magang</span>
+                            <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-pink-500/10 text-pink-500">Industri</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Program Magang PT. Inovasi</h3>
+                        <p class="text-gray-400 text-sm line-clamp-3">Menjalani magang selama 3 bulan di divisi operasional. Berhasil membantu mengoptimalkan proses pelaporan mingguan menggunakan tools digital, memangkas waktu kerja hingga 2 jam/hari.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-dark-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Hubungi <span class="text-pink-500">Saya</span></h2>
+                <div class="w-16 h-1 bg-pink-500 mx-auto rounded-full"></div>
+                <p class="mt-4 text-gray-400">Tertarik untuk merekrut saya? Mari berdiskusi lebih lanjut.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
+                
+                <!-- Contact Info -->
+                <div class="lg:col-span-2 space-y-8 reveal">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center flex-shrink-0 text-pink-500">
+                            <i class="ph ph-envelope-simple text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium mb-1">Email</h4>
+                            <p class="text-gray-400 text-sm">emailanda@example.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center flex-shrink-0 text-pink-500">
+                            <i class="ph ph-phone text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium mb-1">Telepon / WhatsApp</h4>
+                            <p class="text-gray-400 text-sm">+62 812 3456 7890</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center flex-shrink-0 text-pink-500">
+                            <i class="ph ph-map-pin text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium mb-1">Lokasi</h4>
+                            <p class="text-gray-400 text-sm">Jakarta, Indonesia (Bersedia Relokasi)</p>
+                        </div>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="pt-6">
+                        <h4 class="text-white font-medium mb-4">Media Sosial</h4>
+                        <div class="flex gap-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-dark-800 border border-dark-700 flex items-center justify-center text-gray-400 hover:text-pink-500 hover:border-pink-500 transition">
+                                <i class="ph-fill ph-linkedin-logo text-xl"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-dark-800 border border-dark-700 flex items-center justify-center text-gray-400 hover:text-pink-500 hover:border-pink-500 transition">
+                                <i class="ph-fill ph-github-logo text-xl"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-dark-800 border border-dark-700 flex items-center justify-center text-gray-400 hover:text-pink-500 hover:border-pink-500 transition">
+                                <i class="ph-fill ph-instagram-logo text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-3 reveal delay-100">
+                    <form id="contact-form" class="bg-dark-800 p-8 rounded-2xl border border-dark-700">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-400 mb-2">Nama Lengkap</label>
+                                <input type="text" id="name" class="w-full bg-dark-900 border border-dark-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition" placeholder="John Doe" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-400 mb-2">Email</label>
+                                <input type="email" id="email" class="w-full bg-dark-900 border border-dark-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition" placeholder="john@example.com" required>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="subject" class="block text-sm font-medium text-gray-400 mb-2">Subjek</label>
+                            <input type="text" id="subject" class="w-full bg-dark-900 border border-dark-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition" placeholder="Peluang Kerja..." required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-gray-400 mb-2">Pesan</label>
+                            <textarea id="message" rows="4" class="w-full bg-dark-900 border border-dark-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition resize-none" placeholder="Tulis pesan Anda di sini..." required></textarea>
+                        </div>
+                        
+                        <!-- Form Message Feedback (Hidden by default) -->
+                        <div id="form-feedback" class="hidden mb-4 p-3 rounded bg-green-500/10 border border-green-500 text-green-500 text-sm">
+                            Pesan berhasil dikirim! Saya akan segera membalasnya.
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 bg-pink-600 hover:bg-pink-500 text-white rounded-lg font-medium transition duration-300 glow-pink flex justify-center items-center gap-2">
+                            Kirim Pesan <i class="ph ph-paper-plane-right"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 border-t border-dark-700 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-gray-500 text-sm text-center md:text-left">
+                &copy; <span id="year"></span> Nama Anda. All rights reserved.
+            </p>
+            <p class="text-gray-500 text-sm flex items-center gap-1">
+                Dibuat dengan <i class="ph-fill ph-heart text-pink-500"></i> untuk masa depan yang cerah.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interactivity -->
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.classList.remove('ph-x');
+                icon.classList.add('ph-list');
+            } else {
+                icon.classList.remove('ph-list');
+                icon.classList.add('ph-x');
+            }
+        }
+
+        btn.addEventListener('click', toggleMenu);
+
+        // Close mobile menu when a link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!menu.classList.contains('hidden')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // Intersection Observer for Scroll Animations (.reveal)
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOptions = {
+            threshold: 0.15, // Trigger when 15% of the element is visible
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Optional: stop observing once revealed
+                    // observer.unobserve(entry.target); 
+                }
+            });
+        }, revealOptions);
+
+        revealElements.forEach(el => {
+            revealOnScroll.observe(el);
+        });
+
+        // Form Submit Simulation
+        const contactForm = document.getElementById('contact-form');
+        const formFeedback = document.getElementById('form-feedback');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Mencegah reload halaman
+            
+            // Simulasi proses pengiriman
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="ph ph-spinner animate-spin text-xl"></i> Mengirim...';
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-75');
+
+            setTimeout(() => {
+                // Reset tombol
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-75');
+                
+                // Tampilkan pesan sukses
+                formFeedback.classList.remove('hidden');
+                
+                // Kosongkan form
+                contactForm.reset();
+                
+                // Sembunyikan pesan sukses setelah 5 detik
+                setTimeout(() => {
+                    formFeedback.classList.add('hidden');
+                }, 5000);
+            }, 1500); // Simulasi delay 1.5 detik
+        });
+    </script>
+</body>
+</html>
